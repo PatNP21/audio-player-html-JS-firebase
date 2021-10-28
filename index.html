@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AudioPlayer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="fontawesome.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style>
+            body {
+                margin:0 !important;
+            }
+
+            main {
+                width: 100vw;
+                height: 90vh;
+            }
+
+            .audiocontainer {
+                width:86vw;
+                height:80vh;
+                margin: 5vh 7vw 5vh 7vw;
+            }
+
+            .audiocontainer > .mainContent {
+                width: 100%;
+                height: 70%;
+                background-color: blueviolet;
+            }
+
+            .audiocontainer > .operationContent {
+                width:100%;
+                height:30%;
+            }
+
+            .audiocontainer > .operationContent > .getSourceContent {
+                width: 100%;
+                height: 40%;
+            }
+
+            .audiocontainer > .operationContent > .getSourceContent > #songFileInputReadOnly {
+                width:75%;
+                height:91%;
+                border:2px solid darkgray;
+                margin-left: 1%;
+                margin-top:2%;
+                margin-bottom:2%;
+                border-radius: 5px;
+                float:left;
+            }
+
+            .audiocontainer > .operationContent > .getSourceContent > #sourceBtn {
+                width:20%;
+                margin-left:2%;
+                margin-top:2%;
+                margin-bottom:2%;
+                height:91%;
+                border:2px solid darkgray;
+                border-radius: 5px;
+                float:left;
+                cursor: pointer;
+                text-align: center;
+                line-height: 8vh;
+                background-color: lavender;
+            }
+
+            .audiocontainer > .operationContent > .controls {
+                width: 100%;
+                height: 60%;
+            }
+
+            .audiocontainer > .operationContent > .controls > .previousOne {
+                width: 22%;
+                text-align:center;
+                height: 100%;
+                float: left;
+                line-height: 8vh;
+            }
+
+            .audiocontainer > .operationContent > .controls > .pause {
+                width: 16%;
+                height: 100%;
+                text-align:center;
+                float: left;
+                line-height: 10vh;
+            }
+
+            .audiocontainer > .operationContent > .controls > .play {
+                width: 16%;
+                height: 100%;
+                text-align:center;
+                float: left;
+                line-height: 5vh;
+            }
+
+            .audiocontainer > .operationContent > .controls > .stop {
+                width: 16%;
+                height: 100%;
+                text-align:center;
+                float: left;
+                line-height: 5vh;
+            }
+
+            .audiocontainer > .operationContent > .controls > .nextOne {
+                width: 22%;
+                height: 100%;
+                text-align:center;
+                float: left;
+                line-height: 5vh;
+            }
+
+            .audiocontainer > .operationContent > .controls > .loop {
+                width: 8%;
+                height: 100%;
+                text-align:center;
+                float: left;
+                line-height: 5vh;
+            }
+
+            .c:hover {
+                background-color:darkgray;
+            }
+
+            footer {
+                width: 100vw;
+                height: 10vh;
+                bottom: 0;
+                position: fixed;
+                color: #000080;
+                font-size: 4vh;
+                line-height: 10vh;
+                text-align: center;
+                font-family: Arial;
+            }
+        </style>
+    </head>
+    <body>
+        <audio id="audio">
+            <source id="source">
+        </audio>
+        <main>
+            <div class="audiocontainer">
+                <div class="mainContent">
+                    <ul class="list_of_audios">
+
+                    </ul>
+                </div>
+                <div class="operationContent">
+                    <div class="getSourceContent">
+                        <!--input to get source of file to play-->
+                        <input type="text" id="songFileInputReadOnly" placeholder="Your song's title" readonly/>
+                        <input type="file" accept=".mp3" id="sourceBtn" value="Choose a file"/>
+                    </div>
+
+                    <div class="controls">
+                        <!--controls to operate of playing file-->
+                        <div class="previousOne c">
+                            <i class="fa fa-step-backward fa-5x"></i>
+                        </div>
+                        <div class="pause c">
+                            <i class="far fa-pause-circle fa-4x"></i>
+                        </div>
+                        <div class="play c">
+                            <i class="far fa-play-circle fa-4x"></i>
+                        </div>
+                        <div class="stop c">
+                            <i class="far fa-stop-circle fa-4x"></i>
+                        </div>
+                        <div class="nextOne c">
+                            <i class="fa fa-step-forward fa-5x"></i>
+                        </div>
+                        <div class="loop c">
+                            <i class="fa fa-refresh fa-3x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>2021 created by Patryk Najda</footer>
+
+        <script type="module" src="app.js" crossorigin="anonymous">
+        </script>
+    </body>
+</html>

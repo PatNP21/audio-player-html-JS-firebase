@@ -7,9 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="fontawesome.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://kit.fontawesome.com/70c2361876.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
         <style>
             body {
                 margin:0 !important;
+                font-family: 'Titillium Web', sans-serif;
             }
 
             main {
@@ -26,7 +29,30 @@
             .audiocontainer > .mainContent {
                 width: 100%;
                 height: 70%;
-                background-color: blueviolet;
+                overflow-y: scroll;
+                border-top: 1px solid #000080;
+                border-bottom: 1px solid #000080;
+            }
+
+            ul {
+                list-style-type: none !important;
+                margin-block-start: 0;
+                padding-inline-start: 1vw;
+            }
+
+            .audiocontainer > .mainContent > ul.list_of_studios {
+                list-style-type: none !important;
+                width:100%;
+            }
+
+            .audiocontainer > .mainContent > ul.list_of_studios > li {
+                list-style-type: none;
+                width:99%;
+                height:6vh;
+                border:2px solid blue;
+                background-color: cornsilk;
+                border-radius: 4px;
+                margin-top: 1px;
             }
 
             .audiocontainer > .operationContent {
@@ -50,19 +76,43 @@
                 float:left;
             }
 
-            .audiocontainer > .operationContent > .getSourceContent > #sourceBtn {
+            .audiocontainer > .operationContent > .getSourceContent > .inputFileBtn {
                 width:20%;
                 margin-left:2%;
                 margin-top:2%;
                 margin-bottom:2%;
                 height:91%;
-                border:2px solid darkgray;
                 border-radius: 5px;
                 float:left;
                 cursor: pointer;
                 text-align: center;
                 line-height: 8vh;
                 background-color: lavender;
+            }
+
+            .audiocontainer > .operationContent > .getSourceContent > .inputFileBtn > .srcBtn {
+                width:100%;
+                height:100%;
+                border:2px solid darkgray;
+                border-radius: 5px;
+                float:left;
+                cursor: pointer;
+                text-align: center;
+                line-height: 8vh;
+                overflow:hidden;
+                text-overflow: hidden;
+            }
+
+            .audiocontainer > .operationContent > .getSourceContent > .inputFileBtn > #sourceBtn {
+                width:100%;
+                height:100%;
+                border:2px solid darkgray;
+                border-radius: 5px;
+                float:left;
+                cursor: pointer;
+                text-align: center;
+                line-height: 8vh;
+                display: none;
             }
 
             .audiocontainer > .operationContent > .controls {
@@ -75,7 +125,8 @@
                 text-align:center;
                 height: 100%;
                 float: left;
-                line-height: 8vh;
+                line-height: 20vh;
+                transition: background-color 1.5s color 1,5s;
             }
 
             .audiocontainer > .operationContent > .controls > .pause {
@@ -83,7 +134,8 @@
                 height: 100%;
                 text-align:center;
                 float: left;
-                line-height: 10vh;
+                line-height: 18vh;
+                transition: background-color 1.5s color 1,5s;
             }
 
             .audiocontainer > .operationContent > .controls > .play {
@@ -91,7 +143,8 @@
                 height: 100%;
                 text-align:center;
                 float: left;
-                line-height: 5vh;
+                line-height: 18vh;
+                transition: background-color 1.5s color 1,5s;
             }
 
             .audiocontainer > .operationContent > .controls > .stop {
@@ -99,7 +152,8 @@
                 height: 100%;
                 text-align:center;
                 float: left;
-                line-height: 5vh;
+                line-height: 18vh;
+                transition: background-color 1.5s color 1,5s;
             }
 
             .audiocontainer > .operationContent > .controls > .nextOne {
@@ -107,7 +161,8 @@
                 height: 100%;
                 text-align:center;
                 float: left;
-                line-height: 5vh;
+                line-height: 20vh;
+                transition: background-color 1.5s color 1,5s;
             }
 
             .audiocontainer > .operationContent > .controls > .loop {
@@ -115,11 +170,18 @@
                 height: 100%;
                 text-align:center;
                 float: left;
-                line-height: 5vh;
+                line-height: 17vh;
+                transition: background-color 1.5s color 1,5s;
+            }
+
+            .c {
+                cursor: pointer;
             }
 
             .c:hover {
-                background-color:darkgray;
+                background-color: cadetblue;
+                border-radius: 5px;
+                color:white;
             }
 
             footer {
@@ -131,7 +193,7 @@
                 font-size: 4vh;
                 line-height: 10vh;
                 text-align: center;
-                font-family: Arial;
+                font-family: 'Titillium Web', sans-serif;
             }
         </style>
     </head>
@@ -142,7 +204,7 @@
         <main>
             <div class="audiocontainer">
                 <div class="mainContent">
-                    <ul class="list_of_audios">
+                    <ul id="list_of_audios">
 
                     </ul>
                 </div>
@@ -150,7 +212,10 @@
                     <div class="getSourceContent">
                         <!--input to get source of file to play-->
                         <input type="text" id="songFileInputReadOnly" placeholder="Your song's title" readonly/>
-                        <input type="file" accept=".mp3" id="sourceBtn" value="Choose a file"/>
+                        <div class="inputFileBtn">
+                            <label for="sourceBtn" class="srcBtn">Choose an audio</label>
+                            <input type="file" accept=".mp3, .wav" id="sourceBtn" value="Choose a file" />
+                        </div>
                     </div>
 
                     <div class="controls">
@@ -171,7 +236,7 @@
                             <i class="fa fa-step-forward fa-5x"></i>
                         </div>
                         <div class="loop c">
-                            <i class="fa fa-refresh fa-3x"></i>
+                            <i class="fas fa-sync-alt fa-3x"></i>
                         </div>
                     </div>
                 </div>

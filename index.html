@@ -9,196 +9,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://kit.fontawesome.com/70c2361876.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
-        <style>
-            body {
-                margin:0 !important;
-                font-family: 'Titillium Web', sans-serif;
-            }
-
-            main {
-                width: 100vw;
-                height: 90vh;
-            }
-
-            .audiocontainer {
-                width:86vw;
-                height:80vh;
-                margin: 5vh 7vw 5vh 7vw;
-            }
-
-            .audiocontainer > .mainContent {
-                width: 100%;
-                height: 70%;
-                overflow-y: scroll;
-                border-top: 1px solid #000080;
-                border-bottom: 1px solid #000080;
-            }
-
-            ul {
-                list-style-type: none !important;
-                margin-block-start: 0;
-                padding-inline-start: 1vw;
-            }
-
-            .audiocontainer > .mainContent > ul.list_of_studios {
-                list-style-type: none !important;
-                width:100%;
-            }
-
-            .audiocontainer > .mainContent > ul.list_of_studios > li {
-                list-style-type: none;
-                width:99%;
-                height:6vh;
-                border:2px solid blue;
-                background-color: cornsilk;
-                border-radius: 4px;
-                margin-top: 1px;
-            }
-
-            .audiocontainer > .operationContent {
-                width:100%;
-                height:30%;
-            }
-
-            .audiocontainer > .operationContent > .getSourceContent {
-                width: 100%;
-                height: 40%;
-            }
-
-            .audiocontainer > .operationContent > .getSourceContent > #songFileInputReadOnly {
-                width:75%;
-                height:91%;
-                border:2px solid darkgray;
-                margin-left: 1%;
-                margin-top:2%;
-                margin-bottom:2%;
-                border-radius: 5px;
-                float:left;
-            }
-
-            .audiocontainer > .operationContent > .getSourceContent > .inputFileBtn {
-                width:20%;
-                margin-left:2%;
-                margin-top:2%;
-                margin-bottom:2%;
-                height:91%;
-                border-radius: 5px;
-                float:left;
-                cursor: pointer;
-                text-align: center;
-                line-height: 8vh;
-                background-color: lavender;
-            }
-
-            .audiocontainer > .operationContent > .getSourceContent > .inputFileBtn > .srcBtn {
-                width:100%;
-                height:100%;
-                border:2px solid darkgray;
-                border-radius: 5px;
-                float:left;
-                cursor: pointer;
-                text-align: center;
-                line-height: 8vh;
-                overflow:hidden;
-                text-overflow: hidden;
-            }
-
-            .audiocontainer > .operationContent > .getSourceContent > .inputFileBtn > #sourceBtn {
-                width:100%;
-                height:100%;
-                border:2px solid darkgray;
-                border-radius: 5px;
-                float:left;
-                cursor: pointer;
-                text-align: center;
-                line-height: 8vh;
-                display: none;
-            }
-
-            .audiocontainer > .operationContent > .controls {
-                width: 100%;
-                height: 60%;
-            }
-
-            .audiocontainer > .operationContent > .controls > .previousOne {
-                width: 22%;
-                text-align:center;
-                height: 100%;
-                float: left;
-                line-height: 20vh;
-                transition: background-color 1.5s color 1,5s;
-            }
-
-            .audiocontainer > .operationContent > .controls > .pause {
-                width: 16%;
-                height: 100%;
-                text-align:center;
-                float: left;
-                line-height: 18vh;
-                transition: background-color 1.5s color 1,5s;
-            }
-
-            .audiocontainer > .operationContent > .controls > .play {
-                width: 16%;
-                height: 100%;
-                text-align:center;
-                float: left;
-                line-height: 18vh;
-                transition: background-color 1.5s color 1,5s;
-            }
-
-            .audiocontainer > .operationContent > .controls > .stop {
-                width: 16%;
-                height: 100%;
-                text-align:center;
-                float: left;
-                line-height: 18vh;
-                transition: background-color 1.5s color 1,5s;
-            }
-
-            .audiocontainer > .operationContent > .controls > .nextOne {
-                width: 22%;
-                height: 100%;
-                text-align:center;
-                float: left;
-                line-height: 20vh;
-                transition: background-color 1.5s color 1,5s;
-            }
-
-            .audiocontainer > .operationContent > .controls > .loop {
-                width: 8%;
-                height: 100%;
-                text-align:center;
-                float: left;
-                line-height: 17vh;
-                transition: background-color 1.5s color 1,5s;
-            }
-
-            .c {
-                cursor: pointer;
-            }
-
-            .c:hover {
-                background-color: cadetblue;
-                border-radius: 5px;
-                color:white;
-            }
-
-            footer {
-                width: 100vw;
-                height: 10vh;
-                bottom: 0;
-                position: fixed;
-                color: #000080;
-                font-size: 4vh;
-                line-height: 10vh;
-                text-align: center;
-                font-family: 'Titillium Web', sans-serif;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <audio id="audio">
+        <audio id="audio" preload="metadata">
             <source id="source">
         </audio>
         <main>
@@ -208,13 +22,36 @@
 
                     </ul>
                 </div>
+
+                <div class="theVisualizer">
+                    <div id="logo">
+                        <img src="streamify2k22.png"/>
+                    </div>
+                    <div class="metadata">
+                        <p class="met">contentType: </p>
+                        <p class="met">size: </p>
+                        <p class="met">timeCreated: </p>
+                    </div>
+                    <div>
+                        <form>
+                            <input type="text" class="username" placeholder="Enter your username"/>
+                            <input type="submit" class="submitButton" value="submit"/>
+                        </form>
+                    </div>
+                </div>
+
                 <div class="operationContent">
+                    <div class="durationProgressBar">
+                        <div id="currentTime"></div>
+                        <progress id="bar" value="20" max="100"></progress>
+                        <div id="duration"></div>
+                    </div>
                     <div class="getSourceContent">
                         <!--input to get source of file to play-->
                         <input type="text" id="songFileInputReadOnly" placeholder="Your song's title" readonly/>
                         <div class="inputFileBtn">
                             <label for="sourceBtn" class="srcBtn">Choose an audio</label>
-                            <input type="file" accept=".mp3, .wav" id="sourceBtn" value="Choose a file" />
+                            <input type="file" accept=".mp3, .wav, .wma, .ogg" id="sourceBtn" value="Choose a file" />
                         </div>
                     </div>
 
@@ -235,15 +72,24 @@
                         <div class="nextOne c">
                             <i class="fa fa-step-forward fa-5x"></i>
                         </div>
+                        <div class="loop-one c">
+                            1
+                        </div>
                         <div class="loop c">
-                            <i class="fas fa-sync-alt fa-3x"></i>
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="random c">
+                            <i class="fas fa-random"></i>
+                        </div>
+                        <div class="trash c">
+                            <i class="fas fa-trash-alt"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
 
-        <footer>2021 created by Patryk Najda</footer>
+        <footer>2022 created by Patryk Najda</footer>
 
         <script type="module" src="app.js" crossorigin="anonymous">
         </script>

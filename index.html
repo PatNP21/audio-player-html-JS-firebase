@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>AudioPlayer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="fontawesome.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/70c2361876.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio id="audio" preload="metadata">
+      <source id="source" />
+    </audio>
+    <main>
+      <div class="audiocontainer">
+        <div class="mainContent">
+          <ul id="list_of_audios"></ul>
+        </div>
+
+        <div class="theVisualizer">
+          <div id="logo">
+            <img src="streamify2k22.png" />
+          </div>
+          <div class="metadata">
+            <p class="met">contentType:</p>
+            <p class="met">size:</p>
+            <p class="met">timeCreated:</p>
+          </div>
+          <div>
+            <form>
+              <input
+                type="text"
+                class="username"
+                placeholder="Enter your username"
+              />
+              <input type="submit" class="submitButton" value="submit" />
+            </form>
+          </div>
+        </div>
+
+        <div class="operationContent">
+          <div class="durationProgressBar">
+            <div id="currentTime"></div>
+            <progress id="bar" value="20" max="100"></progress>
+            <div id="duration"></div>
+          </div>
+          <div class="getSourceContent">
+            <!--input to get source of file to play-->
+            <input
+              type="text"
+              id="songFileInputReadOnly"
+              placeholder="Your song's title"
+              readonly
+            />
+            <div class="inputFileBtn">
+              <label for="sourceBtn" class="srcBtn">Choose an audio</label>
+              <input
+                type="file"
+                accept=".mp3, .wav, .wma, .ogg"
+                id="sourceBtn"
+                value="Choose a file"
+              />
+            </div>
+          </div>
+
+          <div class="controls">
+            <!--controls to operate of playing file-->
+            <div class="previousOne c">
+              <i class="fa fa-step-backward fa-5x"></i>
+            </div>
+            <div class="pause c">
+              <i class="far fa-pause-circle fa-4x"></i>
+            </div>
+            <div class="play c">
+              <i class="far fa-play-circle fa-4x"></i>
+            </div>
+            <div class="stop c">
+              <i class="far fa-stop-circle fa-4x"></i>
+            </div>
+            <div class="nextOne c">
+              <i class="fa fa-step-forward fa-5x"></i>
+            </div>
+            <div class="loop-one c">
+              1
+            </div>
+            <div class="loop c">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <div class="random c">
+              <i class="fas fa-random"></i>
+            </div>
+            <div class="trash c">
+              <i class="fas fa-trash-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>Created by Patryk Najda</footer>
+
+    <script type="module" src="app.js" crossorigin="anonymous"></script>
+  </body>
+</html>

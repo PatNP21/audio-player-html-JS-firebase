@@ -1,0 +1,279 @@
+
+body {
+    margin:0 !important;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+main {
+    width: 100vw;
+    height: 90vh;
+}
+
+.audiocontainer {
+    width:86vw;
+    height:80vh;
+    margin: 5vh 7vw 5vh 7vw;
+}
+
+.audiocontainer > .mainContent {
+    width: 50%;
+    height: 60%;
+    float:left;
+    overflow-y: scroll;
+    border-top: 1px solid #000080;
+    border-bottom: 1px solid #000080;
+}
+
+.audiocontainer > .theVisualizer {
+    width: 48%;
+    height: 60%;
+    float:left;
+    border-top: 1px solid #000080;
+    border-bottom: 1px solid #000080;
+}
+
+.audiocontainer > .theVisualizer > #logo {
+    width:36%;
+    height:40%;
+    border-radius: 50%;
+    background-color: #000080;
+    transition: 5s;
+}
+
+.audiocontainer > .theVisualizer > #logo > img {
+    width:100%;
+    height:100%;
+}
+
+ul {
+    list-style-type: none !important;
+    margin-block-start: 0;
+    padding-inline-start: 1vw;
+}
+
+.audiocontainer > .mainContent > ul.list_of_studios {
+    list-style-type: none !important;
+    width:100%;
+}
+
+.audiocontainer > .mainContent > ul.list_of_studios > li {
+    list-style-type: none;
+    width:99%;
+    height:6vh;
+    border:2px solid blue;
+    background-color: cornsilk;
+    border-radius: 4px;
+    margin-top: 1px;
+    overflow: hidden;
+}
+
+.audiocontainer > .operationContent {
+    width:100%;
+    height:40%;
+}
+
+.audiocontainer > .operationContent > .durationProgressBar {
+    width:100%;
+    height:10%;
+}
+
+.audiocontainer > .operationContent > .durationProgressBar > progress #bar {
+    height:50%;
+    width:60vw;
+    background-color: white;
+    border-radius: 10%;
+    float:left;
+    color:white;
+}
+
+#duration {
+    width: 20vw;
+}
+
+.audiocontainer > .operationContent > .durationProgressBar > #currentTime {
+    float: left;
+    width:7vw;
+    margin-left: 5vw;
+    height:5vh;
+    line-height: 5vh;
+    color:#000080;
+}
+
+.audiocontainer > .operationContent > .durationProgressBar > #duration {
+    float: left;
+    width:7vw;
+    margin-left: 5vw;
+    height:5vh;
+    line-height: 5vh;
+    color:#000080;
+}
+
+progress {
+    width:60vw;
+    height:5vh;
+    margin: 0 auto;
+    float: left;
+}
+
+.audiocontainer > .operationContent > .getSourceContent {
+    width: 100%;
+    height: 30%;
+}
+
+.audiocontainer > .operationContent > .getSourceContent > #songFileInputReadOnly {
+    width:75%;
+    height:85%;
+    border:2px solid darkgray;
+    margin-left: 1%;
+    margin-top:5%;
+    margin-bottom:2%;
+    border-radius: 5px;
+    float:left;
+}
+
+.audiocontainer > .operationContent > .getSourceContent > .inputFileBtn {
+    width:20%;
+    margin-left:2%;
+    margin-top:5%;
+    margin-bottom:2%;
+    height:85%;
+    border-radius: 5px;
+    float:left;
+    cursor: pointer;
+    text-align: center;
+    line-height: 8vh;
+    background-color: lavender;
+}
+
+.audiocontainer > .operationContent > .getSourceContent > .inputFileBtn > .srcBtn {
+    width:100%;
+    height:100%;
+    border:2px solid darkgray;
+    border-radius: 5px;
+    float:left;
+    cursor: pointer;
+    text-align: center;
+    line-height: 8vh;
+    overflow:hidden;
+    text-overflow: hidden;
+}
+
+.audiocontainer > .operationContent > .getSourceContent > .inputFileBtn > #sourceBtn {
+    width:100%;
+    height:100%;
+    border:2px solid darkgray;
+    border-radius: 5px;
+    float:left;
+    cursor: pointer;
+    text-align: center;
+    line-height: 8vh;
+    display: none;
+}
+
+.audiocontainer > .operationContent > .controls {
+    width: 100%;
+    height: 45%;
+}
+
+.audiocontainer > .operationContent > .controls > .previousOne {
+    width: 20%;
+    text-align:center;
+    height: 100%;
+    float: left;
+    line-height: 18vh;
+    transition: background-color 1.5s color 1,5s;
+}
+
+.audiocontainer > .operationContent > .controls > .pause {
+    width: 16%;
+    height: 100%;
+    text-align:center;
+    float: left;
+    line-height: 16vh;
+    transition: background-color 1.5s color 1,5s;
+}
+
+.audiocontainer > .operationContent > .controls > .play {
+    width: 16%;
+    height: 100%;
+    text-align:center;
+    float: left;
+    line-height: 16vh;
+    transition: background-color 1.5s color 1,5s;
+}
+
+.audiocontainer > .operationContent > .controls > .stop {
+    width: 16%;
+    height: 100%;
+    text-align:center;
+    float: left;
+    line-height: 16vh;
+    transition: background-color 1.5s color 1,5s;
+}
+
+.audiocontainer > .operationContent > .controls > .nextOne {
+    width: 20%;
+    height: 100%;
+    text-align:center;
+    float: left;
+    line-height: 18vh;
+    transition: background-color 1.5s color 1,5s;
+}
+
+.audiocontainer > .operationContent > .controls > .loop-one {
+    width: 8%;
+    height: 25%;
+    text-align:center;
+    float: left;
+    line-height: 4vh;
+    transition: background-color 1.5s color 1,5s;
+}
+
+.audiocontainer > .operationContent > .controls > .loop {
+    width: 8%;
+    height: 25%;
+    text-align:center;
+    float: left;
+    line-height: 4vh;
+    transition: background-color 1.5s color 1,5s;
+}
+
+.audiocontainer > .operationContent > .controls > .random {
+    width: 8%;
+    height: 25%;
+    text-align:center;
+    float: left;
+    line-height: 4vh;
+    transition: background-color 1.5s color 1,5s;
+}
+
+.audiocontainer > .operationContent > .controls > .trash {
+    width: 8%;
+    height: 25%;
+    text-align:center;
+    float: left;
+    line-height: 4vh;
+    transition: background-color 1.5s color 1,5s;
+}
+
+.c {
+    cursor: pointer;
+}
+
+.c:hover {
+    background-color: cadetblue;
+    border-radius: 5px;
+    color:white;
+}
+
+footer {
+    width: 100vw;
+    height: 10vh;
+    bottom: 0;
+    position: fixed;
+    color: #000080;
+    font-size: 4vh;
+    line-height: 10vh;
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+}
